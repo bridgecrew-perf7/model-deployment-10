@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    prediction = 0
     if request.method == 'POST':
         model = pickle.load(open('model.pkl', 'rb'))
         user_input = request.form.get('attenuation')
